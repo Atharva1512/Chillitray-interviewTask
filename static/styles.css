@@ -1,0 +1,41 @@
+.container1{
+    width:max-content;
+    margin: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 50px;
+    text-align: center;
+    background-color:rgb(170, 177, 175); 
+    border:5px solid rgb(27, 92, 190);
+    border-radius: 10px;
+}
+
+.container1 input{
+    margin: 5px;
+    padding: 5px;
+}
+
+.login_body{
+    background-color: rgb(13, 130, 197);
+}
+
+.login_container{
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    width: max-content;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    padding: 50px;
+    border: 4px solid black;
+    border-radius: 15px;
+}
+
+.login_container input{
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}

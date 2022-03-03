@@ -1,0 +1,14 @@
+{% autoescape off %}
+Hello {{name}}, 
+
+Welcom to our platform 
+
+Thank you for registration 
+
+Confirm your email to activate your account 
+
+Confirmation Link:http://{{domain}}{% url 'activate' uidb64=uid token=token %}
+
+Thanking You,
+Atharva Borawake. 
+{% endautoescape %}

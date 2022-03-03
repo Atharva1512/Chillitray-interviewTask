@@ -1,0 +1,75 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <title>Sign In</title>
+  </head>
+  <body class="login_body">
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+      <a class="navbar-brand" href="#">Chillitray</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+        
+          <li class="nav-item">
+            <a class="nav-link" href="/">Register</a>
+          </li>
+  
+        </ul>
+      </div>
+    </nav>
+    {% for msg in messages %}
+      <div class="alert alert-{{msg.tags}} alert-dismissible fade show" role="alert">
+        <strong>Alert!</strong> {{msg}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    {% endfor %}
+    <h1>{{data}}</h1>
+    <div class="login_container">
+      <form action="login" method="POST"  class="box">
+        {% csrf_token %}
+        <h1>Login</h1>
+        <p class="text-muted"> Please enter your login and password!</p> 
+        <input type="text" id="name" name="email" placeholder="Email" required > 
+        <input type="password" id="pass" name="password" placeholder="Password" required> 
+        <a class="forgot text-muted" href="#">Forgot password?</a> 
+
+        <input type="submit" id="login_btn" value="Login" disabled>
+        
+        </div>
+    </form>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <script>
+      setInterval(()=>{
+        let name_cnt=document.getElementById('name').value.length
+        let pass_cnt=document.getElementById('pass').value.length
+        if(name_cnt>=1 && pass_cnt>=1){
+          console.log("success")
+          enable_btn = document.getElementById('login_btn').disabled=false
+        }
+        else{
+          enable_btn = document.getElementById('login_btn').disabled=true
+        }
+      },1000)
+      
+    </script>
+  </body>
+</html>
